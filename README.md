@@ -188,7 +188,14 @@ Dari dataset lengkap, dipilih kolom-kolom yang relevan untuk sistem rekomendasi,
 
 Kolom-kolom ini dianggap mengandung informasi penting untuk mendeskripsikan karakteristik game.
 
-### 3. TF-IDF Vectorizer Feature Extraction (Ekstraksi Fitur Teks)
+### 3. Pembuatan Fitur Gabungan
+Untuk mengoptimalkan representasi konten, dilakukan penggabungan beberapa fitur teks (`developer`, `publisher`, `platforms`, `categories`, `genres`, dan `steamspy_tags`) ke dalam satu kolom baru bernama `combined_features`.
+Langkah ini bertujuan menyatukan seluruh informasi tekstual penting dalam satu representasi yang utuh.
+
+### 4. Normalisasi Teks
+Isi dari kolom `combined_features` kemudian dikonversi menjadi huruf kecil (lowercase) untuk menyamakan format dan menghindari perbedaan kata hanya karena kapitalisasi. Ini penting agar model tidak memperlakukan "Action" dan "action" sebagai dua kata berbeda.
+
+### 5. TF-IDF Vectorizer Feature Extraction (Ekstraksi Fitur Teks)
 Untuk mengubah data teks pada fitur `genres`, `categories`, dan `steamspy_tags` menjadi representasi numerik yang dapat diproses oleh algoritma machine learning, digunakan TF-IDF Vectorizer.
 
 ---
